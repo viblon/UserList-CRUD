@@ -1,31 +1,13 @@
-const todo = (state, action) => {
-  switch (action.type) {
-    case 'ADD_TODO':
-      return {
-        id: action.id,
-        text: action.text
-      }
-    case 'DEL_TODO':
-      return {
-        id: action.id,
-      }
-    case 'SET_TODO':
-      return {
-        id: action.id,
-        text: action.text
-      }
-
-    default:
-      return state
-  }
-}
-
 const todos = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TODO':
       return [
         ...state,
-        todo(undefined, action)
+        {
+          id: action.id,
+          data: action.data,
+
+        }
       ]
     case 'DEL_TODO':
       return state.filter(todo =>

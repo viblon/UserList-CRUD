@@ -13,10 +13,14 @@ import { Link } from 'react-router';
 
 import React, { PropTypes } from 'react'
 
-const Todo = ({ todo, text, delTodo }) => (
+const Todo = ({ todo, delTodo }) => (
   <tr>
     <td><Link to={"/"+ todo.id} activeClassName="active">
-   {todo.text}</Link></td>
+   {todo.data.fname}</Link></td>
+   <td><Link to={"/"+ todo.id} activeClassName="active">
+  {todo.data.lname}</Link></td>
+  <td><Link to={"/"+ todo.id} activeClassName="active">
+  {todo.data.age}</Link></td>
     <td><button style={{float:"right"}} onClick={() => delTodo(todo.id)} >
       Х
     </button></td>
@@ -25,7 +29,6 @@ const Todo = ({ todo, text, delTodo }) => (
 
 Todo.propTypes = {
   todo: PropTypes.object.isRequired,
-  text: PropTypes.string.isRequired,
   delTodo: PropTypes.func.isRequired
 }
 

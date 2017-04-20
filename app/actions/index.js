@@ -1,8 +1,8 @@
 let nextTodoId = 0
-export const addTodo = (text) => ({
+export const addTodo = (data) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
+  id: Math.random().toString(36).substr(2, 5),
+  data
 })
 
 export const delTodo = (id) => ({

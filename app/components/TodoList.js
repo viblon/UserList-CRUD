@@ -30,7 +30,7 @@ let TodoList = ({ todos, delTodo }) => (
         <th>Aactions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody className='demotable'>
       {todos.map(todo =>
         <Todo
           delTodo = {delTodo}
