@@ -20,7 +20,7 @@ import Todo from './TodoListItem'
 // import { delTodo } from '../actions'
 
 let TodoList = ({ todos, delTodo }) => (
-  <table class="pure-table">
+  <table className="pure-table">
     <thead>
       <tr>
         <th>#</th>
@@ -35,7 +35,7 @@ let TodoList = ({ todos, delTodo }) => (
         <Todo
           delTodo = {delTodo}
           key={todo.id}
-          todo={todo}
+          todo={todo.data}
           {...todo}
         />
       )}
@@ -45,8 +45,8 @@ let TodoList = ({ todos, delTodo }) => (
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    data: PropTypes.object.isRequired,
   }).isRequired).isRequired
 }
 

@@ -15,12 +15,12 @@ import React, { PropTypes } from 'react'
 
 const Todo = ({ todo, delTodo }) => (
   <tr>
-    <td><Link to={"/"+ todo.id} activeClassName="active">
-   {todo.data.fname}</Link></td>
-   <td><Link to={"/"+ todo.id} activeClassName="active">
-  {todo.data.lname}</Link></td>
-  <td><Link to={"/"+ todo.id} activeClassName="active">
-  {todo.data.age}</Link></td>
+    <td>
+   {todo.fname}</td>
+   <td>
+  {todo.lname}</td>
+  <td>
+  {todo.age}</td>
     <td><button style={{float:"right"}} onClick={() => delTodo(todo.id)} >
       Х
     </button></td>
