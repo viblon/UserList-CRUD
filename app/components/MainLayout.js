@@ -4,12 +4,17 @@ import axios from 'axios';
 
 export default class TodoBanner extends Component {
 
+	componentWillMount() {
+		axios.get('mate.json')
+	    .then((response) => {
+				console.log(response.data);
+	      getMates(response.data);
+	    })
+	    .catch((error) => { console.log(error);})
+	}
+
 	componentDidMount() {
-		axios.get('https://api.github.com/users/codeheaven-io')
-  .then(function(response){
-    console.log(response.data.name);
-    console.log(response.status);
-  });
+		console.log('huy');
 	}
 
 	render(){

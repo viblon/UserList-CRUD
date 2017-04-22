@@ -9,31 +9,49 @@ class AddTodo extends Component{
     super(props);
     //fetchTasks();
     this.state = {
-      text: ''
+      fname: '',
+      lname: '',
+      age: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange (e) {
-    this.setState({ text: e.target.value })
+    const value = e.target.value;
+    const name = e.target.name;
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit (e) {
     e.preventDefault()
-    if (!this.state.text.trim()) {
+    if (!this.state.fname.trim() && !this.state.lname.trim() && !this.state.age.trim()) {
       return
     }
-    this.props.addTodo(this.state.text)
-    this.setState({ text: '' })
+    this.props.addTodo(this.state)
+    this.setState({
+      fname: '',
+      lname: '',
+      age: ''
+    })
   }
 render(){
   //let input
   return (
     <div className="banner">
       <form onSubmit = {this.handleSubmit}>
-        <input  value = {this.state.text}
-                onChange = {this.handleChange}/><br/>
+        <input
+          name='fname'
+          value = {this.state.fname}
+          onChange = {this.handleChange}/><br/>
+        <input
+          name='lname'
+          value = {this.state.lname}
+          onChange = {this.handleChange}/><br/>
+        <input
+          name='age'
+          value = {this.state.age}
+          onChange = {this.handleChange}/><br/>
         <input type='submit' value='Добавить'/>
       </form>
     </div>

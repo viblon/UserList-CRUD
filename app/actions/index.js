@@ -1,8 +1,23 @@
-let nextTodoId = 0
-export const addTodo = (text) => ({
+import axios from 'axios';
+
+export const addTodo = (data) => ({
   type: 'ADD_TODO',
-  id: nextTodoId++,
-  text
+  id: Math.random().toString(36).substr(2, 5),
+  data
+})
+
+export const getMates = () => {
+  axios.get('mate.json')
+    .then((response) => {
+      let data = JSON.parse(response);
+      getMates(data);
+    })
+    .catch((error) => { console.log(error);});
+}
+
+export const responseMates = (data) => ({
+  type: 'RESPONSE_MATES',
+  data
 })
 
 export const delTodo = (id) => ({
